@@ -5,7 +5,7 @@ language_tabs:
   - shell
 
 toc_footers:
-  - <a href='https://github.com/worldcoo' target='_blank'>See on Github</a>
+  - <a href='https://github.com/WorldCoo/docs-slate-api/blob/master/source/index.html.md#donation-api-v3-overview' target='_blank'>See on Github</a>
   - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
 
 search: true
