@@ -39,7 +39,7 @@ Authorization | yes | NA | Authorization token provided by WorldCoo
 
 ### Response
 
-#### 201 Created
+`201 Created`
 
 ##### Body
 - **id** *string*

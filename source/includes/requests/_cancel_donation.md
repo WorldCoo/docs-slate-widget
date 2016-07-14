@@ -23,7 +23,7 @@ https://api.worldcoo.com/ngos/2454de2c-cb31-44e5-83bd/campaigns/a9fb530d-6270-0c
 
 ### Response
 
-#### 200 Ok
+`200 Ok`
 
 ##### Response body
 

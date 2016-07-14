@@ -68,7 +68,7 @@ limit | no | 20 | The maximum number of items to return.
 
 ### Response
 
-#### 200 Ok
+`200 Ok`
 
 ##### Response body
 

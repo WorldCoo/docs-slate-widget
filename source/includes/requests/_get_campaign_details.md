@@ -53,7 +53,7 @@ Authorization | yes | NA | Authorization token provided by WorldCoo
 
 ### Response
 
-#### 200 Ok
+`200 Ok`
 
 ##### Response body
 
