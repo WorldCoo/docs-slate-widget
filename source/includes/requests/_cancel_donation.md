@@ -12,8 +12,10 @@ https://api.worldcoo.com/ngos/2454de2c-cb31-44e5-83bd/campaigns/a9fb530d-6270-0c
 
 ```json
 {
-    "donation_id": "17a10455-120d-e767-0206",
-    "status": "success"
+    "id": "17a10455-120d-e767-0206",
+    "amount": 5,
+    "currency": "EUR",
+    "order_code": "9638467"
 }
 ```
 
@@ -25,5 +27,7 @@ https://api.worldcoo.com/ngos/2454de2c-cb31-44e5-83bd/campaigns/a9fb530d-6270-0c
 
 ##### Response body
 
-- **donation_id** *string*
-- **status** *string*
+- **id** *string*
+- **amount** *number*
+- **currency** *[CurrencyCode](#currency-standar)*
+- **order_code** *string*
