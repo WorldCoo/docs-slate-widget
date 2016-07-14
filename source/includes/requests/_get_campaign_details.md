@@ -3,9 +3,9 @@
 > Example of campaign details call:
 
 ```shell
-curl -X POST
+curl -X GET
 -H "Authorization: <ACCESS_TOKEN>"
-https://api.worldcoo.com/ngos/ etc...
+https://api.worldcoo.com/ngos/{{ngo_id}}/campaigns/{{campaign_id}}
 ```
 
 > Response:

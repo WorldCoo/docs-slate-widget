@@ -1,11 +1,11 @@
-## Get available NGO Campaigns
+## Get available campaigns
 
 > Example of ngo campaigns call:
 
 ```shell
 curl -X POST
 -H "Authorization: <ACCESS_TOKEN>"
-https://api.worldcoo.com/ngos/ etc...
+https://api.worldcoo.com/ngos/{{ngo_id}}/campaigns?limit=1
 ```
 
 > Response:

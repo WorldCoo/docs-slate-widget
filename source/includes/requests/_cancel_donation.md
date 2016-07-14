@@ -3,7 +3,7 @@
 > Example of cancel donation call:
 
 ```shell
-curl -X POST
+curl -X DELETE
 -H "Authorization: <ACCESS_TOKEN>"
 https://api.worldcoo.com/ngos/ etc...
 ```
@@ -17,10 +17,4 @@ https://api.worldcoo.com/ngos/ etc...
 }
 ```
 
-`DEL https://api.worldcoo.com/ngos/{{ngo_id}}/campaigns/{{campaign_id}}/donations/{{donation_id}}`
-
-Required parameters:
-
-Parm | Type | Required | Description
----------- | ------- | ------- | -------
-- | - | - | - | -
+`DELETE https://api.worldcoo.com/ngos/{{ngo_id}}/campaigns/{{campaign_id}}/donations/{{donation_id}}`

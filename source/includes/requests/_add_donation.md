@@ -5,7 +5,7 @@
 ```shell
 curl -X POST
 -H "Authorization: <ACCESS_TOKEN>"
-https://api.worldcoo.com/ngos/ etc...
+https://api.worldcoo.com/ngos/{{ngo_id}}/campaigns/{{campaign_id}}/donations
 ```
 
 > Response:
@@ -19,7 +19,7 @@ https://api.worldcoo.com/ngos/ etc...
 
 `POST https://api.worldcoo.com/ngos/{{ngo_id}}/campaigns/{{campaign_id}}/donations`
 
-Required parameters:
+### Body
 
 Parm | Type | Required | Description
 ---------- | ------- | ------- | -------

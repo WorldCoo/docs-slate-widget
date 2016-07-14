@@ -3,9 +3,9 @@
 > Example of ngo call:
 
 ```shell
-curl -X POST
+curl -X GET
 -H "Authorization: <ACCESS_TOKEN>"
-https://api.worldcoo.com/ngos/ etc...
+https://api.worldcoo.com/ngos?limit=2&offset=10
 ```
 
 > Response:
