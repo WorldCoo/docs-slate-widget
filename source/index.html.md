@@ -7,6 +7,7 @@ includes:
   - requests/get_campaign_details
   - requests/add_donation
   - requests/cancel_donation
+  - appendixes
 
 language_tabs:
   - shell
@@ -53,6 +54,16 @@ WorldCoo is continuously working to improve its technology, and as part of this 
 
 Customers will always be encouraged to integrate against the latest version as this will give them the longest stable period without the need to change, but if they have already begun integration activities when a new version is released then they will be able to integrate against the previous version. Customers should not integrate against the deprecated version.
 
+# Data type standard
+
+## <a name="currency-standar"></a>Currency
+The currencies are given using the ISO 4217 standard (3 letters uppercase).
+
+## <a name="country-standar"></a>Country
+The countries are given using the ISO 3166-2 standard (2 letters uppercase).
+
+## <a name="date-standar"></a>Date
+The dates are given using the [Unix standard](https://en.wikipedia.org/wiki/Unix_time).
 
 # Authentication
 
@@ -75,18 +86,49 @@ Prior to the Onboarding process, WorldCoo will provide you with a a set of crede
 </aside>
 The WorldCoo Donation API uses token-based authentication with Authorization header following RFC 2617. All communications to this API must provide well-formed and active credentials. Any unauthorized access will result in 401 (Unauthorized) response code and further attempts may incur an automatic IP ban.
 
-# HTTP response codes
+# HTTP errors
 
-Response Code | Meaning
----------- | -------
-200 | OK
-201 | Created
-202 | Accepted
-301 | Moved permanently
-302 | Found
-400 | Bad request
-401 | Unauthorized
-404 | Not Found
-500 | Internal server error
+## 400 Bad Request
+
+### Body
+
+#### application/json
+
+- **error_message** *string*: Description of the error occurred.
+- **fields** *map*: A map of request body params errors
+- **request_id** *string*: Required for technical assistance
+
+> Example of Bad Request response:
+
+```json
+{
+  "error_message": "",
+  "request_id": "f3c09088-472d-4224-b52f",
+  "fields": {
+    "amount": "Should be a positive amount"
+  }
+}
+```
+
+## 401 Unauthorized
+
+### Body
+
+- **error_message** *string*: Description of the error occurred.
+- **request_id** *string*: Required for technical assistance
+
+## 404 Not Found
+
+### Body
+
+- **error_message** *string*: Description of the error occurred.
+- **request_id** *string*: Required for technical assistance
+
+## 500 Internal Server Error
+
+### Body
+
+- **error_message** *string*: Description of the error occurred.
+- **request_id** *string*: Required for technical assistance
 
 # Requests

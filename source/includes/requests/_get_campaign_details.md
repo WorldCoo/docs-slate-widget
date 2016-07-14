@@ -5,15 +5,15 @@
 ```shell
 curl -X GET
 -H "Authorization: <ACCESS_TOKEN>"
-https://api.worldcoo.com/ngos/2454de2c-cb31-44e5-83bd-e663abd4eb26/campaigns/a9fb530d-6270-0cc7-e8a8-84f3aab8478a
+https://api.worldcoo.com/ngos/2454de2c-cb31-44e5-83bd/campaigns/a9fb530d-6270-0cc7-e8a8
 ```
 
-> Response:
+> Example of add donation response:
 
 ```json
 {
-  "id": "a9fb530d-6270-0cc7-e8a8-84f3aab8478a",
-  "ngo_id": "2454de2c-cb31-44e5-83bd-e663abd4eb26",
+  "id": "a9fb530d-6270-0cc7-e8a8",
+  "ngo_id": "2454de2c-cb31-44e5-83bd",
   "name": "NGO Campaign 1",
   "description": "This is an example of campaign description.",
   "status": "opened",
@@ -55,7 +55,7 @@ Authorization | yes | NA | Authorization token provided by WorldCoo
 
 #### 200 Ok
 
-##### Body
+##### Response body
 
 - **id** *string*
 - **name** *string*
@@ -63,9 +63,9 @@ Authorization | yes | NA | Authorization token provided by WorldCoo
 - **location**
     - **country_code** *[CountryCode](#country-standar)*
     - **city_name** *string*
-- **[category](#capaign-categories)** *string*
+- **[category](#campaign-categories)** *string*
 - **ngo_id** *string*
-- **[status](#campaign-status)** *string*
+- **[status](#campaign-statuses)** *string*
 - **languages** *[LanguageCode](#language-standar) list*
 - **currency** *[CurrencyCode](#currency-standar)*
 - **budget**
