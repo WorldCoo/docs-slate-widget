@@ -29,7 +29,7 @@ Onboarding is a sandboxed test environment that allows you to test your integrat
 
 # Live deployment
 
-Once you have completed all the required testing in the onboarding environment you will be provided with access to the live production system. Please use the supplied Token ID to connect to this environment. 
+Once you have completed all the required testing in the onboarding environment you will be provided with access to the live production system. Please use the supplied Token ID to connect to this environment.
 
 The end point for the live WorldCoo Donation API web service is:
 
@@ -40,9 +40,9 @@ The end point for the live WorldCoo Donation API web service is:
 
 WorldCoo is continuously working to improve its technology, and as part of this process updates to the services provided may on occasion necessitate a new API version. WorldCoo will try to maintain three versions of the API as new versions are introduced, so that previous versions move down the stack until they are ultimately removed completely:
 
-*	Latest version 
-*	Previous version 
-*	Deprecated version 
+*	Latest version
+*	Previous version
+*	Deprecated version
 
 Customers will always be encouraged to integrate against the latest version as this will give them the longest stable period without the need to change, but if they have already begun integration activities when a new version is released then they will be able to integrate against the previous version. Customers should not integrate against the deprecated version.
 
@@ -58,14 +58,13 @@ Following international standards and with the aim of keeping our customers safe
 > Example of authorized call:
 
 ```shell
-curl -X POST 
--H "Content-type: application/json" 
--H "Authorization: Bearer <ACCESS_TOKEN>"
-https://api.worldcoo.com/ngos/ 
+curl -X POST
+-H "Authorization: <ACCESS_TOKEN>"
+https://api.worldcoo.com/ngos/
 ```
 
 <aside class="success">
-Prior to the Onboarding process, WorldCoo will provide you with a a set of credentials in order to interact with the API. 
+Prior to the Onboarding process, WorldCoo will provide you with a a set of credentials in order to interact with the API.
 </aside>
 The WorldCoo Donation API uses token-based authentication with Authorization header following RFC 2617. All communications to this API must provide well-formed and active credentials. Any unauthorized access will result in 401 (Unauthorized) response code and further attempts may incur an automatic IP ban.
 
@@ -99,9 +98,8 @@ Error Code | Meaning
 > Example of ngo call:
 
 ```shell
-curl -X POST 
--H "Content-type: application/json" 
--H "Authorization: Bearer <ACCESS_TOKEN>"
+curl -X POST
+-H "Authorization: <ACCESS_TOKEN>"
 https://api.worldcoo.com/ngos/ etc...
 ```
 
@@ -129,22 +127,20 @@ https://api.worldcoo.com/ngos/ etc...
 
 `GET https://api.worldcoo.com/ngos`
 
-Required parameters:
+HTTP Headers:
 
-Parm | Type | Required | Description
+Header name | Required | default | Description
 ---------- | ------- | ------- | -------
-lang | String | Yes | String | iso 639-2/b language code
-
-
+Authorization | yes | NA | Authorization token provided by WorldCoo
+[Accept-Language](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.4) | No | en | iso 639-2/b language code.
 
 ## Get available NGO Campaigns
 
 > Example of ngo campaigns call:
 
 ```shell
-curl -X POST 
--H "Content-type: application/json" 
--H "Authorization: Bearer <ACCESS_TOKEN>"
+curl -X POST
+-H "Authorization: <ACCESS_TOKEN>"
 https://api.worldcoo.com/ngos/ etc...
 ```
 
@@ -165,7 +161,7 @@ https://api.worldcoo.com/ngos/ etc...
 	      "2": "http://cdn.worldcoo.com/ngos/8720fdd5-1b10-a4c8-a614-d437667dcea9/campaign/ a9fb530d-6270-0cc7-e8a8-84f3aab8478a/2.png",
 	      "3": "http://cdn.worldcoo.com/ngos/8720fdd5-1b10-a4c8-a614-d437667dcea9/campaign/ a9fb530d-6270-0cc7-e8a8-84f3aab8478a/3.png "
                  }],
-            "description": "This is an example of campaign description.", 
+            "description": "This is an example of campaign description.",
 			"location": [
 			 {
 			      "country": [{
@@ -199,7 +195,7 @@ https://api.worldcoo.com/ngos/ etc...
 	      "1": "http://cdn.worldcoo.com/ngos/8720fdd5-1b10-a4c8-a614-d437667dcea9/campaign/ 6ef093ae-c9e0-f79f-ffe0-2953c7eb51c9/1.png",
 	      "2": " http://cdn.worldcoo.com/ngos/8720fdd5-1b10-a4c8-a614-d437667dcea9/campaign/ 6ef093ae-c9e0-f79f-ffe0-2953c7eb51c9/2.png"
                  }],
-            "description": "This is an example of campaign description.", 
+            "description": "This is an example of campaign description.",
             "location": [
 	 {
 	      "country": [{
@@ -230,11 +226,12 @@ https://api.worldcoo.com/ngos/ etc...
 
 `GET https://api.worldcoo.com/ngos/{{ngo_id}}/campaigns`
 
-Required parameters:
+HTTP Headers:
 
-Parm | Type | Required | Description
+Header name | Required | default | Description
 ---------- | ------- | ------- | -------
-lang | String | Yes | String | iso 639-2/b language code
+Authorization | yes | NA | Authorization token provided by WorldCoo
+[Accept-Language](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.4) | No | en | iso 639-2/b language code.
 
 
 
@@ -244,9 +241,8 @@ lang | String | Yes | String | iso 639-2/b language code
 > Example of campaign details call:
 
 ```shell
-curl -X POST 
--H "Content-type: application/json" 
--H "Authorization: Bearer <ACCESS_TOKEN>"
+curl -X POST
+-H "Authorization: <ACCESS_TOKEN>"
 https://api.worldcoo.com/ngos/ etc...
 ```
 
@@ -267,7 +263,7 @@ https://api.worldcoo.com/ngos/ etc...
 	      "2": "http://cdn.worldcoo.com/ngos/8720fdd5-1b10-a4c8-a614-d437667dcea9/campaign/ a9fb530d-6270-0cc7-e8a8-84f3aab8478a/2.png",
 	      "3": "http://cdn.worldcoo.com/ngos/8720fdd5-1b10-a4c8-a614-d437667dcea9/campaign/ a9fb530d-6270-0cc7-e8a8-84f3aab8478a/3.png "
                  }],
-            "description": "This is an example of campaign description.", 
+            "description": "This is an example of campaign description.",
 			"location": [
 			 {
 			      "country": [{
@@ -298,11 +294,12 @@ https://api.worldcoo.com/ngos/ etc...
 
 `GET https://api.worldcoo.com/ngos/{{ngo_id}}/campaigns/{{campaign_id}}`
 
-Required parameters:
+HTTP Headers:
 
-Parm | Type | Required | Description
+Header name | Required | default | Description
 ---------- | ------- | ------- | -------
-lang | String | Yes | String | iso 639-2/b language code
+Authorization | yes | NA | Authorization token provided by WorldCoo
+[Accept-Language](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.4) | No | en | iso 639-2/b language code.
 
 
 
@@ -312,9 +309,8 @@ lang | String | Yes | String | iso 639-2/b language code
 > Example of add donation call:
 
 ```shell
-curl -X POST 
--H "Content-type: application/json" 
--H "Authorization: Bearer <ACCESS_TOKEN>"
+curl -X POST
+-H "Authorization: <ACCESS_TOKEN>"
 https://api.worldcoo.com/ngos/ etc...
 ```
 
@@ -333,7 +329,7 @@ Required parameters:
 
 Parm | Type | Required | Description
 ---------- | ------- | ------- | -------
-donation_amount | NUMERIC(10,4) | Yes | String |  
+donation_amount | NUMERIC(10,4) | Yes | String |
 currency | String | Yes | String | ISO 4271 currency code
 order_code | String | Yes | String | Internal client reference regarding this donation
 
@@ -344,9 +340,8 @@ order_code | String | Yes | String | Internal client reference regarding this do
 > Example of cancel donation call:
 
 ```shell
-curl -X POST 
--H "Content-type: application/json" 
--H "Authorization: Bearer <ACCESS_TOKEN>"
+curl -X POST
+-H "Authorization: <ACCESS_TOKEN>"
 https://api.worldcoo.com/ngos/ etc...
 ```
 
