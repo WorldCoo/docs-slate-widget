@@ -68,14 +68,9 @@ Prior to the Onboarding process, WorldCoo will provide you with a a set of crede
 </aside>
 The WorldCoo Donation API uses token-based authentication with Authorization header following RFC 2617. All communications to this API must provide well-formed and active credentials. Any unauthorized access will result in 401 (Unauthorized) response code and further attempts may incur an automatic IP ban.
 
-# Response Codes
+# HTTP response codes
 
-<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files...just save them to the `includes` folder and add them to the top of your `index.md`'s frontmatter. Files are included in the order listed.</aside>
-
-The Kittn API uses the following error codes:
-
-
-Error Code | Meaning
+Response Code | Meaning
 ---------- | -------
 200 | OK
 201 | Created
@@ -84,11 +79,8 @@ Error Code | Meaning
 302 | Found
 400 | Bad request
 401 | Unauthorized
-403 | Forbidden
 404 | Not Found
-409 | Conflict, resource already exists
 500 | Internal server error
-
 
 # Requests
 
@@ -107,32 +99,43 @@ https://api.worldcoo.com/ngos/ etc...
 
 ```json
 {
-"ngos": [
-        {
-            "id": "8720fdd5-1b10-a4c8-a614-d437667dcea9",
-            "name": "NGO Name Example 1",
-            "url": "http://www.examplengo1.com",
-            "logo": "http://cdn.worldcoo.com/ngo/8720fdd5-1b10-a4c8-a614-d437667dcea9/logos/logoexamplengo1.png",
-            "description": "This is an example of NGO description."
-        },
-        {
-            "id": "79a3b10a-3c84-a19a-5e07-12319c2bee6b",
-            "name": "NGO Name Example 2",
-            "url": "http://www.examplengo2.com",
-            "logo": "http://cdn.worldcoo.com/ngo/79a3b10a-3c84-a19a-5e07-12319c2bee6b/logos/logoexamplengo2.png",
-            "description": "This is an example of NGO description."
-        }
-]}
+    "items": [
+            {
+                "id": "8720fdd5-1b10-a4c8-a614-d437667dcea9",
+                "name": "NGO Name Example 1",
+                "url": "http://www.examplengo1.com",
+                "logo": "http://cdn.worldcoo.com/ngo/8720fdd5-1b10-a4c8-a614-d437667dcea9/logos/logoexamplengo1.png",
+                "description": "This is an example of NGO description."
+            },
+            {
+                "id": "79a3b10a-3c84-a19a-5e07-12319c2bee6b",
+                "name": "NGO Name Example 2",
+                "url": "http://www.examplengo2.com",
+                "logo": "http://cdn.worldcoo.com/ngo/79a3b10a-3c84-a19a-5e07-12319c2bee6b/logos/logoexamplengo2.png",
+                "description": "This is an example of NGO description."
+            }
+    ],
+    "total": 53,
+    "offset": 10,
+    "limit": 2
+}
 ```
 
 `GET https://api.worldcoo.com/ngos`
 
-HTTP Headers:
+### HTTP Headers
 
 Header name | Required | default | Description
 ---------- | ------- | ------- | -------
 Authorization | yes | NA | Authorization token provided by WorldCoo
 [Accept-Language](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.4) | No | en | iso 639-2/b language code.
+
+### Query params
+
+Param name | Required | default | Description
+---------- | ------- | ------- | -------
+offset | no | 0 | The amount of items to ignore.
+limit | no | 20 | The maximum number of items to return.
 
 ## Get available NGO Campaigns
 
@@ -148,90 +151,104 @@ https://api.worldcoo.com/ngos/ etc...
 
 ```json
 {
-    "id": "8720fdd5-1b10-a4c8-a614-d437667dcea9",
-    "name": " NGO Name Example 1",
-    "campaigns": [
-        {
-            "id": "a9fb530d-6270-0cc7-e8a8-84f3aab8478a",
-            "name": "NGO Campaign 1",
-            "status": "opened",
-            "related_media": [
-                 {
-	      "1": "http://cdn.worldcoo.com/ngos/8720fdd5-1b10-a4c8-a614-d437667dcea9/campaign/a9fb530d-6270-0cc7-e8a8-84f3aab8478a/1.png",
-	      "2": "http://cdn.worldcoo.com/ngos/8720fdd5-1b10-a4c8-a614-d437667dcea9/campaign/ a9fb530d-6270-0cc7-e8a8-84f3aab8478a/2.png",
-	      "3": "http://cdn.worldcoo.com/ngos/8720fdd5-1b10-a4c8-a614-d437667dcea9/campaign/ a9fb530d-6270-0cc7-e8a8-84f3aab8478a/3.png "
-                 }],
-            "description": "This is an example of campaign description.",
-			"location": [
-			 {
-			      "country": [{
-		           	         "code": "ESP",
-		                     "name": "Spain"
-		       	    }],
-		       	    "city": "Cáceres"
-			 }],
-            "category": "children",
-            "currency": "EUR",
-            "budget": [
-                 {
-	      "total": "100000",
-	      "transport": "50000",
-	      "materials": "10000",
-	      "providers": "35000",
-	      "team": "5000"
-                 }],
-            "current_funding": "3527",
-            "current_donor_qty": "3212",
-            "beneficiaries": "1500",
-            "starting_date": "1464277166",
-            "ending_date": ""
-        },
-        {
-            "id": "6ef093ae-c9e0-f79f-ffe0-2953c7eb51c9",
-            "name": "NGO Campaign 2",
-            "status": "opened",
-            "related_media": [
-                 {
-	      "1": "http://cdn.worldcoo.com/ngos/8720fdd5-1b10-a4c8-a614-d437667dcea9/campaign/ 6ef093ae-c9e0-f79f-ffe0-2953c7eb51c9/1.png",
-	      "2": " http://cdn.worldcoo.com/ngos/8720fdd5-1b10-a4c8-a614-d437667dcea9/campaign/ 6ef093ae-c9e0-f79f-ffe0-2953c7eb51c9/2.png"
-                 }],
-            "description": "This is an example of campaign description.",
-            "location": [
-	 {
-	      "country": [{
-           	         "code": "FRA",
-                     "name": "France"
-       	    }],
-       	    "city": "Paris"
-	 }],
-            "category": "health",
-            "currency": "EUR",
-            "budget": [
-                 {
-	      "total": "100000",
-	      "transport": "50000",
-	      "materials": "10000",
-	      "providers": "35000",
-	      "team": "5000"
-                 }],
-            "current_funding": "2452",
-            "current_donor_qty": "2232",
-            "beneficiaries": "1500",
-            "starting_date": "1464277166",
-            "ending_date": ""
-        }]
+  "items": [
+    {
+        "id": "8720fdd5-1b10-a4c8-a614-d437667dcea9",
+        "name": " NGO Name Example 1",
+        "campaigns": [
+            {
+                "id": "a9fb530d-6270-0cc7-e8a8-84f3aab8478a",
+                "name": "NGO Campaign 1",
+                "status": "opened",
+                "related_media": [
+                     {
+    	      "1": "http://cdn.worldcoo.com/ngos/8720fdd5-1b10-a4c8-a614-d437667dcea9/campaign/a9fb530d-6270-0cc7-e8a8-84f3aab8478a/1.png",
+    	      "2": "http://cdn.worldcoo.com/ngos/8720fdd5-1b10-a4c8-a614-d437667dcea9/campaign/ a9fb530d-6270-0cc7-e8a8-84f3aab8478a/2.png",
+    	      "3": "http://cdn.worldcoo.com/ngos/8720fdd5-1b10-a4c8-a614-d437667dcea9/campaign/ a9fb530d-6270-0cc7-e8a8-84f3aab8478a/3.png "
+                     }],
+                "description": "This is an example of campaign description.",
+    			"location": [
+    			 {
+    			      "country": [{
+    		           	         "code": "ESP",
+    		                     "name": "Spain"
+    		       	    }],
+    		       	    "city": "Cáceres"
+    			 }],
+                "category": "children",
+                "currency": "EUR",
+                "budget": [
+                     {
+    	      "total": "100000",
+    	      "transport": "50000",
+    	      "materials": "10000",
+    	      "providers": "35000",
+    	      "team": "5000"
+                     }],
+                "current_funding": "3527",
+                "current_donor_qty": "3212",
+                "beneficiaries": "1500",
+                "starting_date": "1464277166",
+                "ending_date": ""
+            },
+            {
+                "id": "6ef093ae-c9e0-f79f-ffe0-2953c7eb51c9",
+                "name": "NGO Campaign 2",
+                "status": "opened",
+                "related_media": [
+                     {
+    	      "1": "http://cdn.worldcoo.com/ngos/8720fdd5-1b10-a4c8-a614-d437667dcea9/campaign/ 6ef093ae-c9e0-f79f-ffe0-2953c7eb51c9/1.png",
+    	      "2": " http://cdn.worldcoo.com/ngos/8720fdd5-1b10-a4c8-a614-d437667dcea9/campaign/ 6ef093ae-c9e0-f79f-ffe0-2953c7eb51c9/2.png"
+                     }],
+                "description": "This is an example of campaign description.",
+                "location": [
+    	 {
+    	      "country": [{
+               	         "code": "FRA",
+                         "name": "France"
+           	    }],
+           	    "city": "Paris"
+    	 }],
+                "category": "health",
+                "currency": "EUR",
+                "budget": [
+                     {
+    	      "total": "100000",
+    	      "transport": "50000",
+    	      "materials": "10000",
+    	      "providers": "35000",
+    	      "team": "5000"
+                     }],
+                "current_funding": "2452",
+                "current_donor_qty": "2232",
+                "beneficiaries": "1500",
+                "starting_date": "1464277166",
+                "ending_date": ""
+            }]
+    }
+  ],
+  "total": 105,
+  "offset": 0,
+  "limit": 1
 }
 
 ```
 
 `GET https://api.worldcoo.com/ngos/{{ngo_id}}/campaigns`
 
-HTTP Headers:
+### HTTP Headers
 
 Header name | Required | default | Description
 ---------- | ------- | ------- | -------
 Authorization | yes | NA | Authorization token provided by WorldCoo
 [Accept-Language](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.4) | No | en | iso 639-2/b language code.
+
+### Query params
+
+Param name | Required | default | Description
+---------- | ------- | ------- | -------
+offset | no | 0 | The amount of items to ignore.
+limit | no | 20 | The maximum number of items to return.
 
 
 
@@ -294,7 +311,7 @@ https://api.worldcoo.com/ngos/ etc...
 
 `GET https://api.worldcoo.com/ngos/{{ngo_id}}/campaigns/{{campaign_id}}`
 
-HTTP Headers:
+### HTTP Headers
 
 Header name | Required | default | Description
 ---------- | ------- | ------- | -------
