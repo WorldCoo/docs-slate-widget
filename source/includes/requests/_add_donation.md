@@ -5,7 +5,8 @@
 ```shell
 curl -X POST
 -H "Authorization: <ACCESS_TOKEN>"
-https://api.worldcoo.com/ngos/2454de2c-cb31-44e5-83bd/campaigns/a9fb530d-6270-0cc7-e8a8/donations
+-H "content-type: application/json"
+https://api.worldcoo.com/v3/ngos/2454de2c-cb31-44e5-83bd/campaigns/a9fb530d-6270-0cc7-e8a8/donations
 --data '{"amount": 5, "currency": "EUR", "order_code": "9638467"}'
 ```
 
@@ -20,7 +21,7 @@ https://api.worldcoo.com/ngos/2454de2c-cb31-44e5-83bd/campaigns/a9fb530d-6270-0c
 }
 ```
 
-`POST https://api.worldcoo.com/ngos/{{ngo_id}}/campaigns/{{campaign_id}}/donations`
+`POST https://api.worldcoo.com/v3/ngos/{{ngo_id}}/campaigns/{{campaign_id}}/donations`
 
 ### Request
 
