@@ -78,7 +78,7 @@ Following international standards and with the aim of keeping our customers safe
 ```shell
 curl -X POST
 -H "Authorization: <ACCESS_TOKEN>"
-https://api.worldcoo.com/ngos/
+https://api.worldcoo.com/v3/ngos/
 ```
 
 <aside class="success">

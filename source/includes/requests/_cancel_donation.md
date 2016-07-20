@@ -5,7 +5,7 @@
 ```shell
 curl -X DELETE
 -H "Authorization: <ACCESS_TOKEN>"
-https://api.worldcoo.com/ngos/2454de2c-cb31-44e5-83bd/campaigns/a9fb530d-6270-0cc7-e8a8/donations/17a10455-120d-e767-0206
+https://api.worldcoo.com/v3/ngos/2454de2c-cb31-44e5-83bd/campaigns/a9fb530d-6270-0cc7-e8a8/donations/17a10455-120d-e767-0206
 ```
 
 > Example of cancel donation response:
@@ -19,7 +19,7 @@ https://api.worldcoo.com/ngos/2454de2c-cb31-44e5-83bd/campaigns/a9fb530d-6270-0c
 }
 ```
 
-`DELETE https://api.worldcoo.com/ngos/{{ngo_id}}/campaigns/{{campaign_id}}/donations/{{donation_id}}`
+`DELETE https://api.worldcoo.com/v3/ngos/{{ngo_id}}/campaigns/{{campaign_id}}/donations/{{donation_id}}`
 
 ### Response
 

@@ -5,7 +5,7 @@
 ```shell
 curl -X GET
 -H "Authorization: <ACCESS_TOKEN>"
-https://api.worldcoo.com/ngos/2454de2c-cb31-44e5-83bd/campaigns/a9fb530d-6270-0cc7-e8a8
+https://api.worldcoo.com/v3/ngos/2454de2c-cb31-44e5-83bd/campaigns/a9fb530d-6270-0cc7-e8a8
 ```
 
 > Example of add donation response:
@@ -40,7 +40,7 @@ https://api.worldcoo.com/ngos/2454de2c-cb31-44e5-83bd/campaigns/a9fb530d-6270-0c
 }
 ```
 
-`GET https://api.worldcoo.com/ngos/{{ngo_id}}/campaigns/{{campaign_id}}`
+`GET https://api.worldcoo.com/v3/ngos/{{ngo_id}}/campaigns/{{campaign_id}}`
 
 ### Request
 

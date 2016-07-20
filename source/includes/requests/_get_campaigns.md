@@ -5,7 +5,7 @@
 ```shell
 curl -X POST
 -H "Authorization: <ACCESS_TOKEN>"
-https://api.worldcoo.com/ngos/2454de2c-cb31-44e5-83bd/campaigns?limit=1
+https://api.worldcoo.com/v3/ngos/2454de2c-cb31-44e5-83bd/campaigns?limit=1
 ```
 
 > Example of get campaigns response:
@@ -48,7 +48,7 @@ https://api.worldcoo.com/ngos/2454de2c-cb31-44e5-83bd/campaigns?limit=1
 
 ```
 
-`GET https://api.worldcoo.com/ngos/{{ngo_id}}/campaigns`
+`GET https://api.worldcoo.com/v3/ngos/{{ngo_id}}/campaigns`
 
 ### Request
 

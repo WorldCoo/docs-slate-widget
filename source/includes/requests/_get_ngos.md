@@ -5,7 +5,7 @@
 ```shell
 curl -X GET
 -H "Authorization: <ACCESS_TOKEN>"
-https://api.worldcoo.com/ngos?limit=2&offset=10
+https://api.worldcoo.com/v3/ngos?limit=2&offset=10
 ```
 
 > Example of get ngos response:
@@ -34,7 +34,7 @@ https://api.worldcoo.com/ngos?limit=2&offset=10
 }
 ```
 
-`GET https://api.worldcoo.com/ngos`
+`GET https://api.worldcoo.com/v3/ngos`
 
 ### Request
 
