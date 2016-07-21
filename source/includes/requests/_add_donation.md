@@ -5,7 +5,7 @@
 ```shell
 curl -X POST
 -H "Authorization: <ACCESS_TOKEN>"
--H "content-type: application/json"
+-H "Content-Type: application/json"
 https://api.worldcoo.com/v3/ngos/2454de2c-cb31-44e5-83bd/campaigns/a9fb530d-6270-0cc7-e8a8/donations
 --data '{"amount": 5, "currency": "EUR", "order_code": "9638467"}'
 ```
