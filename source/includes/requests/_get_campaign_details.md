@@ -32,11 +32,13 @@ https://api.worldcoo.com/v3/ngos/2454de2c-cb31-44e5-83bd/campaigns/a9fb530d-6270
     "providers": 35000,
     "team": 5000
   },
-  "current_funding": 3527,
-  "current_donor_qty": 3212,
   "beneficiaries": 1500,
   "starting_date": 1464277166,
-  "ending_date": null
+  "ending_date": null,
+  "counters": {
+      "donations": 1,
+      "donated": 48
+  }
 }
 ```
 
@@ -79,8 +81,9 @@ Authorization | yes | NA | Authorization token provided by WorldCoo
     - **other_donations** *number*
     - **donations_in_ecommerce** *number*
     - **amount_in_ecommerce** *number*
-- **current_funding** *number*
-- **current_donor_qty** *number*
 - **beneficiaries** *number*
 - **starting_date** *[Date](#date-standar) | null*
 - **ending_date** *[Date](#date-standar) | null*
+- **counters**
+    - **donations** *number*. Number of donations received.
+    - **donated** *number*. Amount received expressed in EUR.
