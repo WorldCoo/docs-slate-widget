@@ -17,7 +17,11 @@ https://api.worldcoo.com/v3/ngos/2454de2c-cb31-44e5-83bd/campaigns/a9fb530d-6270
     "id": "17a10455-120d-e767-0206",
     "amount": 5,
     "currency": "EUR",
-    "order_code": "9638467"
+    "order_code": "9638467",
+    "campaign_counters": {
+        "total_donated": 60,
+        "target": 50000
+    }
 }
 ```
 
@@ -47,3 +51,6 @@ Authorization | yes | NA | Authorization token provided by WorldCoo
 - **amount** *number*
 - **currency** *[CurrencyCode](#currency-standar)*
 - **order_code** *string*
+- **campaign_counters**
+    - **total_donated** *number*. Amount received expressed in EUR.
+    - **target** *number*. Target amount expressed in EUR.
