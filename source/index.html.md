@@ -1,134 +1,209 @@
 ---
-title: WorldCoo API Donation
-
-includes:
-  - requests/get_ngos
-  - requests/get_campaigns
-  - requests/get_campaign_details
-  - requests/add_donation
-  - requests/cancel_donation
-  - appendixes
+title: WorldCoo Donation Widget
 
 language_tabs:
-  - shell
+  - Javascript
 
 toc_footers:
-  - <a href='https://github.com/WorldCoo/docs-slate-api/blob/master/source/index.html.md#donation-api-v3-overview' target='_blank'>See on Github</a>
-  - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
+  - <a href='https://github.com/WorldCoo/docs-slate-widget' target='_blank'>See on Github</a>
+  - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
 
 search: true
 ---
 
-# Donation API V3 Overview
+# Donation Widget V3 Overview
 
-The WorldCoo Donation API offers web services that allow account customers to interact with WorldCoo systems and perform all the tasks required for them to send donations, as well as get data on NGOs and campaigns.
+The WorldCoo Donation Widget offers web services that allow account customers to interact with WorldCoo systems and perform all the tasks required for them to send donations.
 
-Built in accordance with industry standards, WorldCoo Donation API provides a simple and effective method for web and apps to integrate with WorldCoo and the NGO world, and and get started quickly. There are no costs to customers for using the WorldCoo Donation API services, but WorldCoo clients may incur their own development costs, which should be covered by the client.
+Built in accordance with industry standards, WorldCoo Donation Widget provides a simple and effective method for web and apps to integrate with WorldCoo and the NGO world, and and get started quickly. There are no costs to customers for using the WorldCoo Donation Widget services, but WorldCoo clients may incur their own development costs, which should be covered by the client.
 
 WorldCoo will not accept any responsibility for any development, implementation and testing costs. Customers should address any inquiries regarding systems development to their account handler.
 
 
 # Onboarding
 
-Onboarding is a sandboxed test environment that allows you to test your integration without data being passed through to the WorldCoo operational systems. This ‘Onboarding’ environment is available 24/7, has the same functionality as live (though with a reduced capacity) and can be accessed using a special sandbox access / credentials provided to you during setup. You can access the environment via the following endpoint:
+Onboarding is a sandboxed test environment that allows you to test your integration without data being passed through to the WorldCoo operational systems. This ‘Onboarding’ environment is available 24/7, has the same functionality as live (though with a reduced capacity). 
 
-`https://sandbox.worldcoo.com/v3/`
+You will be provided with a contact in WorldCoo who will take you through the onboarding process. Once you have successfully integrated your system with ours and you are able to work with our system, you will be granted access to the live system and can begin making donations. 
 
 
 # Live deployment
 
-Once you have completed all the required testing in the onboarding environment you will be provided with access to the live production system. Please use the supplied Token ID to connect to this environment.
-
-The end point for the live WorldCoo Donation API web service is:
-
-`https://api.worldcoo.com/v3/`
+Once you have completed all the required testing in the onboarding environment you will be provided with access to the live production system. Please use the supplied Widget ID to connect to this environment. 
 
 
-# API versioning
+# 2-Step intgration
 
-WorldCoo is continuously working to improve its technology, and as part of this process updates to the services provided may on occasion necessitate a new API version. WorldCoo will try to maintain three versions of the API as new versions are introduced, so that previous versions move down the stack until they are ultimately removed completely:
+WorldCoo provides two set of resources in order to integrate the WorldCoo Widget in a faster but secure way.
 
-*	Latest version
-*	Previous version
-*	Deprecated version
+* Pre-payment JavaScript block.
+* Post-payment confirmation resources.
 
-Customers will always be encouraged to integrate against the latest version as this will give them the longest stable period without the need to change, but if they have already begun integration activities when a new version is released then they will be able to integrate against the previous version. Customers should not integrate against the deprecated version.
+![2-step diagram integration](images/widget-2-steps-diagram.png "2-step diagram integration")
 
-# Data type standard
 
-## <a name="currency-standar"></a>Currency
-The currencies are given using the ISO 4217 standard (3 letters uppercase).
+## Step 1 User-choice
 
-## <a name="country-standar"></a>Country
-The countries are given using the ISO 3166-2 standard (2 letters uppercase).
+In order to allow your clients to decide if they will make a donation or not, the step 1 provides an auto-generated widget with all the information available about the project in order to inform the end-user to make the final decision. Usually the generated user interface provides a simple check-box with the aim to provide an easier end-user decision.
 
-## <a name="date-standar"></a>Date
-The dates are given using the [Unix standard](https://en.wikipedia.org/wiki/Unix_time).
+This interface can be personalized. This allows to provide the same look & feel as the rest of your site.
 
-# Authentication
 
-## Only https connections allowed
+> WorldCoo JavaScript loader code for step 1 (pre-payment).
 
-Following international standards and with the aim of keeping our customers safe, the WorldCoo Donation API only allows SSL-encrypted communications.
-
-## Authorization Header
-
-> Example of authorized call:
-
-```shell
-curl -X POST
--H "Authorization: <ACCESS_TOKEN>"
-https://api.worldcoo.com/v3/ngos/
+```html
+<script>
+   window.WORLDCOO=(function (d, s, i){var w=window.WORLDCOO ||{};if (d.getElementById(i)) return w;var spt=d.createElement(s);spt.type='text/javascript';spt.async=true;spt.id=i;spt.src='https://cdn.worldcoo.com/loader/widget-min.js';var l=d.getElementsByTagName(s)[0];l.parentNode.insertBefore(spt, l);w._e=[];w.ready=function(f){w._e.push(f);};return w;})(document, 'script', 'wcjs');
+</script>
 ```
 
+> In order to complete the step 1, you must place and customize the following code at the place you want the widget appears:
+
+```html
+<div class="wc_widget"
+  data-widget-id="f7629749-89aa-43e3-8b4b-9af3925a63ea"
+  data-lang="ES"
+  data-currency="EUR"
+  data-cart-amount="20">
+</div>
+```
+
+### Javascript code
+
+You must place the code shown here anyplace of your page. This will load all necessary resources for the widget to display. This code must be executed before you call any auxiliary function provided by WorldCoo widget.
+
+Additionally, you must add a secondary block of code, this will be replaced with your customized widget in load-time. To make this possible you must provide a small set of variables so you can provide a tailored experience to your end-users:
+
 <aside class="success">
-Prior to the Onboarding process, WorldCoo will provide you with a a set of credentials in order to interact with the API.
+All loads are asynchronous and will not slow down your overall load process. We are aware of the importance of this point. Additionally, all content is loaded from the nearest CDN available to your end-users and will scale at same ratio your end-users do.
 </aside>
-The WorldCoo Donation API uses token-based authentication with Authorization header following RFC 2617. All communications to this API must provide well-formed and active credentials. Any unauthorized access will result in 401 (Unauthorized) response code and further attempts may incur an automatic IP ban.
 
-# HTTP errors
 
-## 400 Bad Request
+Parameter | Required | Description
+---------- | ------- | -------
+data-widget-id | yes | UUID field. This will identify this particular widget in your page context.
+data-lang | yes | ISO 639-2/b language code. Please remember to activate this languages previously in your control panel or making a direct request to WorldCoo Support.
+data-currency | yes | ISO 4271 currency code
+data-cart-amount | yes | Current amount of your end-user shop cart. This allows the widget to optimize the donation amount in real time.
 
-### Body
 
-#### application/json
+> Check if the Widget is currently loaded
 
-- **error_message** *string*: Description of the error occurred.
-- **fields** *map*: A map of request body params errors
-- **request_id** *string*: Required for technical assistance
+```javascript
+WORLDCOO.ready(function() {
+  // Interact with the WorldCoo widget here 
+})
+```
 
-> Example of Bad Request response:
+> Change event
 
-```json
-{
-  "error_message": "",
-  "request_id": "f3c09088-472d-4224-b52f",
-  "fields": {
-    "amount": "Should be a positive amount"
+```javascript
+WORLDCOO.events.bind(
+  'change', 
+  function(response) {
+    // Make something here with the response
   }
+)
+
+// Response
+
+{
+  widgetId: 'f7629749-89aa-43e3-8b4b-9af3925a63ea',
+  checked: true|false,
+  donationAmount: 2,
+  donationid: ee6233f3-1d96-43f7-8fae-0da484c395d0
 }
 ```
 
-## 401 Unauthorized
+> Status method
 
-### Body
+```javascript
+WORLDCOO.widgets.getStatus(widget-id);
 
-- **error_message** *string*: Description of the error occurred.
-- **request_id** *string*: Required for technical assistance
+// Response:
 
-## 404 Not Found
+{
+  widgetId: 'f7629749-89aa-43e3-8b4b-9af3925a63ea',
+  checked: true|false,
+  donationAmount: 1
+  donationid: ee6233f3-1d96-43f7-8fae-0da484c395d0
+}
+```
 
-### Body
+### Interacting with the widget
 
-- **error_message** *string*: Description of the error occurred.
-- **request_id** *string*: Required for technical assistance
+Usually you may need to interact with the widget to perform some operations and verifications. This are most common use cases:
 
-## 500 Internal Server Error
+* Check if the widget is loaded.
+* Check if the user has checked or interact with the widget.
+* Get the current amount donated within the widget.
 
-### Body
+To make this possible, WorldCoo widget provide solid methods to interact and subscribe to the most common actions, so your system can collect and process all user interactions.
 
-- **error_message** *string*: Description of the error occurred.
-- **request_id** *string*: Required for technical assistance
 
-# Requests
+<aside class="warning">You must call events inside WORLDCOO.ready function</aside>
+
+## Step 2 Donation confirmation / cancellation
+
+At this point the end-user has been made the choice of donate (or not donate) to your campaigns. So all we need is to collect this decision and pass it to WorldCoo servers.
+
+To achieve this, you can use a second JavaScript block which receives the data from the first block automatically. You can also implement the WorldCoo Donor API from your backend. We strongly recommend the second way, being the only that ensures you a true control of the donation process. By using WorldCoo Donor API you can implement controls in your backend side by side with your current processing structure.
+
+### Javascript code
+
+> Example of WorldCoo JavaScript loader code for step 2 (post-payment).
+
+```html
+<script>
+   window.WORLDCOO=(function (d, s, i){var w=window.WORLDCOO ||{};if (d.getElementById(i)) return w;var spt=d.createElement(s);spt.type='text/javascript';spt.async=true;spt.id=i;spt.src='https://cdn.worldcoo.com/confirm/widget-min.js';var l=d.getElementsByTagName(s)[0];l.parentNode.insertBefore(spt, l);return w;})(document, 'script', 'wcjs');
+</script>
+```
+You must place the code anyplace at your after-payment page. This will load all necessary resources for the widget. This code must be executed before you call any auxiliary function provided by WorldCoo widget.
+
+> Confirmation data (must be added somewhere within the page):
+
+```html
+<div class=" wc_confirm"
+data-lang="ES"
+data-currency="EUR"
+data-checked="1"
+data-amount="1"
+data-order-code="7423478"
+data-donor-name="Jon"
+data-donor-surname="Doe"
+data-donor-address="Albinyana, 29"
+data-donor-mail="jondoe@worldcoo.com"
+data-donor-id="47777777W">
+</div>
+```
+
+In order to display the confirmation for the end-user as well as pass all data to WorldCoo, you must place and customize the following code at the place you want the widget appears, even if a donation has not been placed.
+
+Parameter | Required | Description
+---------- | ------- | -------
+data-lang | yes | ISO 639-2/b language code. Please remember to activate this languages previously in your control panel or making a direct request to WorldCoo Support.
+data-currency | yes | ISO 4271 currency code
+data-checked | yes | Possible values: 1 (a donation has been placed), 0 (a donation has not been placed).
+data-amount | yes | Donation amount.
+data-order-code | yes | Internal shop order-code related to this order. The end-user can use this code to apply for a donation certificate.
+data-donor-name | no | Name of the donor.
+data-donor-surname | no | Surname of the donor.
+data-donor-address | no | Address of the donor.
+data-donor-mail | no | E-mail of the donor.
+data-donor-id | no | Country ID number of the donor.
+
+### API implementation
+
+####  Why use API confirmation instead of the JavaScript ones?
+
+As you have seen, placing a JavaScript code after the payment allows WorldCoo to collect all the data related to de donation as well as provide some order context. The JavaScript implementation can be reliable when all your users MUST go to this final page to reach order confirmation. Any other behaviour will not be accounted while this second JavaScript is not loaded.
+
+<aside class="error">
+If your user-flow have ramifications, post-order confirmations, or order cancellations are usually placed, please, consider seriously the API implementation.
+</aside>
+
+By using API implementation into the post-payment environment you can control donation confirmations as well as invalidate them from your backend.
+
+####  Why use API confirmation instead of the JavaScript ones?
+
+If you are interested in using API implementation, please review the online documentation <a href='http://docs.worldcoo.com/api/v3'>here</a>.
