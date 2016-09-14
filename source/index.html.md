@@ -32,7 +32,7 @@ You will be provided with a contact in WorldCoo who will take you through the on
 Once you have completed all the required testing in the onboarding environment you will be provided with access to the live production system. Please use the supplied Widget ID to connect to this environment. 
 
 
-# 2-Step intgration
+# 2-Step integration
 
 WorldCoo provides two set of resources in order to integrate the WorldCoo Widget in a faster but secure way.
 
@@ -62,7 +62,7 @@ This interface can be personalized. This allows to provide the same look & feel 
 ```html
 <div class="wc_widget"
   data-widget-id="f7629749-89aa-43e3-8b4b-9af3925a63ea"
-  data-lang="ES"
+  data-lang="ESP"
   data-currency="EUR"
   data-cart-amount="20">
 </div>
@@ -164,7 +164,7 @@ You must place the code anyplace at your after-payment page. This will load all 
 
 ```html
 <div class=" wc_confirm"
-data-lang="ES"
+data-lang="ESP"
 data-currency="EUR"
 data-checked="1"
 data-amount="1"
@@ -204,6 +204,5 @@ If your user-flow have ramifications, post-order confirmations, or order cancell
 
 By using <a href="http://docs.worldcoo.com/api/v3" target="_blank">API implementation</a> into the post-payment environment you can control donation confirmations as well as invalidate them from your backend.
 
-####  Why use API confirmation instead of the JavaScript ones?
 
 If you are interested in using API implementation, please review the online documentation <a href='http://docs.worldcoo.com/api/v3'>here</a>.
