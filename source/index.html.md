@@ -147,7 +147,7 @@ To make this possible, WorldCoo widget provide solid methods to interact and sub
 
 At this point the end-user has been made the choice of donate (or not donate) to your campaigns. So all we need is to collect this decision and pass it to WorldCoo servers.
 
-To achieve this, you can use a second JavaScript block which receives the data from the first block automatically. You can also implement the WorldCoo Donor API from your backend. We strongly recommend the second way, being the only that ensures you a true control of the donation process. By using WorldCoo Donor API you can implement controls in your backend side by side with your current processing structure.
+To achieve this, you can use a second JavaScript block which receives the data from the first block automatically. You can also implement the <a href="http://docs.worldcoo.com/api/v3" target="_blank">WorldCoo Donor API</a> from your backend. We strongly recommend the second way, being the only that ensures you a true control of the donation process. By using <a href="http://docs.worldcoo.com/api/v3" target="_blank">WorldCoo Donor API</a> you can implement controls in your backend side by side with your current processing structure.
 
 ### Javascript code
 
@@ -199,10 +199,10 @@ data-donor-id | no | Country ID number of the donor.
 As you have seen, placing a JavaScript code after the payment allows WorldCoo to collect all the data related to de donation as well as provide some order context. The JavaScript implementation can be reliable when all your users MUST go to this final page to reach order confirmation. Any other behaviour will not be accounted while this second JavaScript is not loaded.
 
 <aside class="error">
-If your user-flow have ramifications, post-order confirmations, or order cancellations are usually placed, please, consider seriously the API implementation.
+If your user-flow have ramifications, post-order confirmations, or order cancellations are usually placed, please, consider seriously the <a href="http://docs.worldcoo.com/api/v3" target="_blank">API implementation</a>.
 </aside>
 
-By using API implementation into the post-payment environment you can control donation confirmations as well as invalidate them from your backend.
+By using <a href="http://docs.worldcoo.com/api/v3" target="_blank">API implementation</a> into the post-payment environment you can control donation confirmations as well as invalidate them from your backend.
 
 ####  Why use API confirmation instead of the JavaScript ones?
 
