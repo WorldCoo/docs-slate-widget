@@ -53,7 +53,7 @@ This interface can be personalized. This allows to provide the same look & feel 
 
 ```html
 <script>
-   window.WORLDCOO=(function (d, s, i){var w=window.WORLDCOO ||{};if (d.getElementById(i)) return w;var spt=d.createElement(s);spt.type='text/javascript';spt.async=true;spt.id=i;spt.src='https://cdn.worldcoo.com/loader/widget-min.js';var l=d.getElementsByTagName(s)[0];l.parentNode.insertBefore(spt, l);w._e=[];w.ready=function(f){w._e.push(f);};return w;})(document, 'script', 'wcjs');
+   window.WORLDCOO=(function (d, s, i){var w=window.WORLDCOO ||{};if (d.getElementById(i)) return w;var spt=d.createElement(s);spt.type='text/javascript';spt.async=true;spt.id=i;spt.src='https://cdn.worldcoo.com/widget/code/loader/initial/widget-min.js';var l=d.getElementsByTagName(s)[0];l.parentNode.insertBefore(spt, l);w._e=[];w.ready=function(f){w._e.push(f);};return w;})(document, 'script', 'wcjs');
 </script>
 ```
 
@@ -155,7 +155,7 @@ To achieve this, you can use a second JavaScript block which receives the data f
 
 ```html
 <script>
-   window.WORLDCOO=(function (d, s, i){var w=window.WORLDCOO ||{};if (d.getElementById(i)) return w;var spt=d.createElement(s);spt.type='text/javascript';spt.async=true;spt.id=i;spt.src='https://cdn.worldcoo.com/confirm/widget-min.js';var l=d.getElementsByTagName(s)[0];l.parentNode.insertBefore(spt, l);return w;})(document, 'script', 'wcjs');
+   window.WORLDCOO=(function (d, s, i){var w=window.WORLDCOO ||{};if (d.getElementById(i)) return w;var spt=d.createElement(s);spt.type='text/javascript';spt.async=true;spt.id=i;spt.src='https://cdn.worldcoo.com/widget/code/loader/confirmation/widget-min.js';var l=d.getElementsByTagName(s)[0];l.parentNode.insertBefore(spt, l);return w;})(document, 'script', 'wcjs');
 </script>
 ```
 You must place the code anyplace at your after-payment page. This will load all necessary resources for the widget. This code must be executed before you call any auxiliary function provided by WorldCoo widget.
