@@ -165,6 +165,7 @@ You must place the code anyplace at your after-payment page. This will load all 
 ```html
 <div class=" wc_confirm"
 data-widget-id="f7629749-89aa-43e3-8b4b-9af3925a63ea"
+data-api-confirmation="false"
 data-lang="ESP"
 data-currency="EUR"
 data-checked="1"
@@ -183,6 +184,7 @@ In order to display the confirmation for the end-user as well as pass all data t
 Parameter | Required | Description
 ---------- | ------- | -------
 data-widget-id | yes | UUID field. This will identify this particular widget in your page context.
+data-api-confirmation | yes | Indicates whether the donations are being confirmed via API or not
 data-lang | yes | ISO 639-2/b language code. Please remember to activate this languages previously in your control panel or making a direct request to WorldCoo Support.
 data-currency | yes | ISO 4271 currency code
 data-checked | yes | Possible values: 1 (a donation has been placed), 0 (a donation has not been placed).
