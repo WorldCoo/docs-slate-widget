@@ -87,6 +87,14 @@ data-currency | yes | ISO 4271 currency code
 data-cart-amount | yes | Current amount of your end-user shop cart. This allows the widget to optimize the donation amount in real time.
 
 
+### Interacting with the widget
+
+Usually you may need to interact with the widget to perform some operations and verifications.
+To make this possible, WorldCoo widget provide solid methods to interact and subscribe to the most common actions, so your system can collect and process all user interactions.
+This are most common use cases:
+
+* Check if the widget is loaded.
+
 > Check if the Widget is currently loaded
 
 ```javascript
@@ -94,6 +102,8 @@ WORLDCOO.ready(function() {
   // Interact with the WorldCoo widget here 
 })
 ```
+
+
 
 > Change event
 
@@ -115,6 +125,9 @@ WORLDCOO.events.bind(
 }
 ```
 
+* Check if the user has checked or interact with the widget.
+
+
 > Status method
 
 ```javascript
@@ -130,6 +143,9 @@ WORLDCOO.widgets.getStatus(widget-id);
 }
 ```
 
+* Get the current amount donated within the widget.
+
+
 > Reload method
 
 ```javascript
@@ -140,16 +156,9 @@ WORLDCOO.widgets.reload();
 WORLDCOO.widgets.reload(widget-id);
 ```
 
-### Interacting with the widget
-
-Usually you may need to interact with the widget to perform some operations and verifications. This are most common use cases:
-
-* Check if the widget is loaded.
-* Check if the user has checked or interact with the widget.
-* Get the current amount donated within the widget.
 * Reload the widget with new data or after an asyncronous reload of your web page
 
-To make this possible, WorldCoo widget provide solid methods to interact and subscribe to the most common actions, so your system can collect and process all user interactions.
+
 
 
 <aside class="warning">You must call events inside WORLDCOO.ready function</aside>
