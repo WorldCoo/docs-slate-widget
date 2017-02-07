@@ -130,6 +130,16 @@ WORLDCOO.widgets.getStatus(widget-id);
 }
 ```
 
+> Reload method
+
+```javascript
+// reload all the widgets
+WORLDCOO.widgets.reload();
+
+// or only a specific one
+WORLDCOO.widgets.reload(widget-id);
+```
+
 ### Interacting with the widget
 
 Usually you may need to interact with the widget to perform some operations and verifications. This are most common use cases:
@@ -137,6 +147,7 @@ Usually you may need to interact with the widget to perform some operations and 
 * Check if the widget is loaded.
 * Check if the user has checked or interact with the widget.
 * Get the current amount donated within the widget.
+* Reload the widget with new data or after an asyncronous reload of your web page
 
 To make this possible, WorldCoo widget provide solid methods to interact and subscribe to the most common actions, so your system can collect and process all user interactions.
 
