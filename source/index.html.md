@@ -198,6 +198,34 @@ data-donor-id | no | Country ID number of the donor.
 
 ### API implementation
 
+
+> Example of WorldCoo API donation confirmation.
+
+```shell
+curl -X PUT
+-H "Authorization: <ACCESS_TOKEN>"
+-H "Content-Type: application/json"
+https://api.worldcoo.com/v3/donations/{{donation_id}}/confirmation
+```
+
+> Example of WorldCoo API confirmation response:
+
+```json
+{
+     "id": "ee6233f3-1d96-43f7-8fae-0da484c395d0",
+     "campaignId": "e07bf1c1-8c4d-4b81-b1b2-14f501b65223",
+     "clientId": "e517455e-2b5f-40a6-befb-2f11cc336a2d",
+     "amount": 1,
+     "status": "confirmed",
+     "currency": "EUR",
+     "creationDate": "2017-01-16T11:07:56.000Z"
+}
+```
+
+In order to confirm donations through API, you must invoke a PUT call to our API endpoint using the related example. Keep in mind you will need to store the original <strong>donation_id</strong> so you can append it to the call.
+
+<aside class="warning">Please make sure you have your API credentials, if not contact with WorldCoo support</aside>
+
 ####  Why use API confirmation instead of the JavaScript ones?
 
 As you have seen, placing a JavaScript code after the payment allows WorldCoo to collect all the data related to de donation as well as provide some order context. The JavaScript implementation can be reliable when all your users MUST go to this final page to reach order confirmation. Any other behaviour will not be accounted while this second JavaScript is not loaded.
