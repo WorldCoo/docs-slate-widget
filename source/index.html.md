@@ -87,6 +87,14 @@ data-currency | yes | ISO 4271 currency code
 data-cart-amount | yes | Current amount of your end-user shop cart. This allows the widget to optimize the donation amount in real time.
 
 
+### Interacting with the widget
+
+Usually you may need to interact with the widget to perform some operations and verifications.
+To make this possible, WorldCoo widget provide solid methods to interact and subscribe to the most common actions, so your system can collect and process all user interactions.
+This are most common use cases:
+
+* Check if the widget is loaded.
+
 > Check if the Widget is currently loaded
 
 ```javascript
@@ -94,6 +102,8 @@ WORLDCOO.ready(function() {
   // Interact with the WorldCoo widget here 
 })
 ```
+
+
 
 > Change event
 
@@ -115,6 +125,9 @@ WORLDCOO.events.bind(
 }
 ```
 
+* Check if the user has checked or interact with the widget.
+
+
 > Status method
 
 ```javascript
@@ -130,6 +143,9 @@ WORLDCOO.widgets.getStatus(widget-id);
 }
 ```
 
+* Get the current amount donated within the widget.
+
+
 > Reload method
 
 ```javascript
@@ -140,16 +156,9 @@ WORLDCOO.widgets.reload();
 WORLDCOO.widgets.reload(widget-id);
 ```
 
-### Interacting with the widget
-
-Usually you may need to interact with the widget to perform some operations and verifications. This are most common use cases:
-
-* Check if the widget is loaded.
-* Check if the user has checked or interact with the widget.
-* Get the current amount donated within the widget.
 * Reload the widget with new data or after an asyncronous reload of your web page
 
-To make this possible, WorldCoo widget provide solid methods to interact and subscribe to the most common actions, so your system can collect and process all user interactions.
+
 
 
 <aside class="warning">You must call events inside WORLDCOO.ready function</aside>
@@ -208,6 +217,34 @@ data-donor-mail | no | E-mail of the donor.
 data-donor-id | no | Country ID number of the donor.
 
 ### API implementation
+
+
+> Example of WorldCoo API donation confirmation.
+
+```shell
+curl -X PUT
+-H "Authorization: <ACCESS_TOKEN>"
+-H "Content-Type: application/json"
+https://api.worldcoo.com/v3/donations/{{donation_id}}/confirmation
+```
+
+> Example of WorldCoo API confirmation response:
+
+```json
+{
+     "id": "ee6233f3-1d96-43f7-8fae-0da484c395d0",
+     "campaignId": "e07bf1c1-8c4d-4b81-b1b2-14f501b65223",
+     "clientId": "e517455e-2b5f-40a6-befb-2f11cc336a2d",
+     "amount": 1,
+     "status": "confirmed",
+     "currency": "EUR",
+     "creationDate": "2017-01-16T11:07:56.000Z"
+}
+```
+
+In order to confirm donations through API, you must invoke a PUT call to our API endpoint using the related example. Keep in mind you will need to store the original <strong>donation_id</strong> so you can append it to the call.
+
+<aside class="warning">Please make sure you have your API credentials, if not contact with WorldCoo support</aside>
 
 ####  Why use API confirmation instead of the JavaScript ones?
 
