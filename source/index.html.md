@@ -111,7 +111,7 @@ WORLDCOO.events.bind(
   widgetId: 'f7629749-89aa-43e3-8b4b-9af3925a63ea',
   checked: true|false,
   donationAmount: 2,
-  donationid: 'ee6233f3-1d96-43f7-8fae-0da484c395d0'
+  donationId: 'ee6233f3-1d96-43f7-8fae-0da484c395d0'
 }
 ```
 
@@ -126,7 +126,7 @@ WORLDCOO.widgets.getStatus(widget-id);
   widgetId: 'f7629749-89aa-43e3-8b4b-9af3925a63ea',
   checked: true|false,
   donationAmount: 1
-  donationid: 'ee6233f3-1d96-43f7-8fae-0da484c395d0'
+  donationId: 'ee6233f3-1d96-43f7-8fae-0da484c395d0'
 }
 ```
 
