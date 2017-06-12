@@ -125,7 +125,7 @@ WORLDCOO.events.bind(
 }
 ```
 
-* Check if the user has checked or interact with the widget.
+* Check if the widget is initialized and if the user has checked or interact with the widget.
 
 
 > Status method
@@ -133,7 +133,13 @@ WORLDCOO.events.bind(
 ```javascript
 WORLDCOO.widgets.getStatus(widget-id);
 
-// Response:
+// Non initialized response:
+// This method can return null, which means that the widget is not initialized for any reason and won't be shown
+
+null
+
+
+// Normal response:
 
 {
   widgetId: 'f7629749-89aa-43e3-8b4b-9af3925a63ea',
