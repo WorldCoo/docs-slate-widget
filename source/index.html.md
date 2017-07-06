@@ -233,7 +233,7 @@ curl -X PUT
 -H "Content-Type: application/json"
 https://api.worldcoo.com/v3/donations/{{donation_id}}/confirmation
 {
-    "order_code": "pis" // Optional. Is the identifier of the order in your system.
+    "order_code": "YOUR_ORDER_CODE" // Optional. Is the identifier of the order in your system.
 }
 ```
 
