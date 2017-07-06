@@ -232,6 +232,9 @@ curl -X PUT
 -H "Authorization: <ACCESS_TOKEN>"
 -H "Content-Type: application/json"
 https://api.worldcoo.com/v3/donations/{{donation_id}}/confirmation
+{
+    "order_code": "pis" // Optional. Is the identifier of the order in your system.
+}
 ```
 
 > Example of WorldCoo API confirmation response:
