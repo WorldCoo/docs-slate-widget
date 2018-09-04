@@ -62,7 +62,7 @@ This interface can be personalized. This allows to provide the same look & feel 
 ```html
 <div class="wc_widget"
   data-widget-id="f7629749-89aa-43e3-8b4b-9af3925a63ea"
-  data-lang="ESP"
+  data-lang="SPA"
   data-currency="EUR"
   data-cart-amount="20">
 </div>
@@ -192,7 +192,7 @@ You must place the code anyplace at your after-payment page. This will load all 
 <div class=" wc_confirm"
 data-widget-id="f7629749-89aa-43e3-8b4b-9af3925a63ea"
 data-api-confirmation="false"
-data-lang="ESP"
+data-lang="SPA"
 data-currency="EUR"
 data-checked="1"
 data-amount="1"
